@@ -19,7 +19,9 @@ pipeline {
             steps{
                 echo "Hello ${params.person}"
                 bat 'mvn --version'
+			    git branch: 'develop', url: 'https://github.com/yadavhardeep/hello-world.git'
                 echo 'hello ! Pipeline is in build stage !!!!!!!!!!'
+				bat(/mvn clean package/)
             }
             
         }
